@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="todo-card">
+        <header class="app-header">
+          <div>
+            <p class="eyebrow">Your daily workspace</p>
+            <h1>FocusList <span>✦</span></h1>
+            <p class="subtitle">Make space for the things that matter.</p>
+          </div>
+          <div class="header-icon" aria-hidden="true">✓</div>
+        </header>
+
+        <form id="task-form" class="task-form">
+          <label class="sr-only" for="task-input">Add a new task</label>
+          <input
+            id="task-input"
+            type="text"
+            maxlength="100"
+            placeholder="What needs to be done?"
+            autocomplete="off"
+          />
+          <button type="submit" class="add-button">Add task</button>
+          <button id="cancel-edit" type="button" class="cancel-button" hidden>
+            Cancel
+          </button>
+        </form>
+
+        <div class="stats" aria-label="Task statistics">
+          <div><strong id="total-count">0</strong><span>Total</span></div>
+          <div><strong id="active-count">0</strong><span>Active</span></div>
+          <div>
+            <strong id="completed-count">0</strong><span>Completed</span>
+          </div>
+        </div>
+
+        <div class="toolbar">
+          <h2>My tasks</h2>
+          <div class="toolbar-actions">
+            <div class="filters" role="tablist" aria-label="Filter tasks">
+              <button
+                class="filter-button active"
+                data-filter="all"
+                type="button"
+              >
+                All
+              </button>
+              <button class="filter-button" data-filter="active" type="button">
+                Active
+              </button>
+              <button
+                class="filter-button"
+                data-filter="completed"
+                type="button"
+              >
+                Completed
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <ul id="task-list" class="task-list" aria-live="polite"></ul>
+
+        <div id="empty-state" class="empty-state">
+          <div class="empty-icon">☀</div>
+          <h3>No tasks here yet</h3>
+          <p>Add a task above and start making progress.</p>
+        </div>
+
+        <p id="message" class="message" role="status" aria-live="polite"></p>
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
